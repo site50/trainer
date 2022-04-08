@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Words</title>
+<meta charset=utf-8 >
+<meta name="description" content="exercises in English" />
+<meta name="robots" content="noodp" />
+<meta name="keywords" content="ENGLISH WORDS, exercises in English, изучение английского языка, английские слова, упражнения на английском языке" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.js"></script>
+<link href="exer.css" rel="stylesheet">
+<style>
+p {
+margin-block-start: 0.1em;
+}
+#correct{
+font-size: 1rem;
+}
+div[id^="dra"] {
+padding-right:1rem;
+padding-left:1rem;}
+h2{
+margin-block-start: -0.2em;
+}
+.ui-overlay-a, .ui-page-theme-a{
+text-shadow: 0 0 black;
+}
+</style>
+</head>
+<body>
+<div id='htmy'></div>
+<script src='modul/dom1.js'></script>
+<script>
+var hei = '3rem';
+var wid = '6rem';
+var arr1=[
+'The air purifies</br>',
+'I will have a glass</br>', 
+'You will bring the book</br>',
+'This cupcake was baked</br>',  
+'I watch a movie</br>',
+'give up/surrender', 
+'hand in/submit',
+'look forward to/anticipate',
+'make up/fabricate',
+'pull out/extract',
+'point out/indicate', 
+'put together/assemble'
+];
+var arr2=[
+'-',
+'of',
+'to',
+'by',
+'about',
+'сдаваться',
+'отправлять', 
+'ожидать', 
+'выдумывать', 
+'извлекать', 
+'показывать', 
+'собирать'
+
+];
+var arr5=[
+'the trees',
+'juice',
+'the librarian',
+'my mother', 
+'animals',
+'','','','','','',''
+
+	];
+var arr4=[];
+var count = 0;
+var a=2;
+var draging=1;
+var c = document.getElementById("prepos").children; 
+var en = document.getElementById("enlg").children; 
+for (var y=0,i=0,k=0; y<c.length,i<arr1.length,k<arr2.length; y++,i++,k++)
+{c[y].innerHTML = arr1[i]+arr5[i];
+en[k].innerHTML = arr2[i]+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+arr4[k];
+if(arr4[k]==undefined)
+{en[k].innerHTML = arr2[i];
+}
+$('#demo').hover(function(){
+$(this).text("Move words in Russian into the area of words in English, equal in meaning");
+$('#rum').css({'background-color':'white','color':'green'});
+}, function() {
+$(this).text("Перенесите слова на русском языке в область слов на английском языке, равных по смыслу");
+$('#rum').css({'background-color':'green','color':'white'});
+});
+$(function() {
+var divsDrag = $("#enlg > div");
+var divsDrop = $("#prepos > div");
+divsDrag.each(function(i, el) {
+$(el).draggable();
+divsDrop.eq(i).droppable({
+accept: el,
+hoverClass: "drags",
+refreshPositions:true ,
+drop: function() {	
+$(this).addClass("ui-state-highlight")
+.html( arr1[i]+' '+arr2[i]+'  '+arr5[i])
+.animate({color: "green" }, 500 )
+$(el).html(arr1[i]).hide(500);
+if (divsDrop.eq(i).droppable)
+{	
+$('#rum').show(2000);
+$('#demo').show(2000).html('<h2 style="color:green;">Правильный ответ</h2>'+'<div id="correct">'+ arr1[i]+'  '+arr2[i]+'  '+arr5[i]+'</duv>');
+$('#rum').css({'background':'coral'});
+count++;
+}			
+if (count==c.length) {
+count++;
+$('#rum').show(1000);
+$('#rum').html('<a href="your_menu.html" rel="external">Упражнение выполнено<br></br>МЕНЮ</a>');
+$('#rum').css({'background-color':'white','color':'green','text-align':'center', 'font-weight': '100','font-size': '0.8rem',
+    'line-height': '1', 'width': '7.8rem'});
+}     
+}	
+})
+})
+});
+}
+
+</script>
+</body>
+</html>

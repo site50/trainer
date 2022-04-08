@@ -2,5 +2,13 @@
 Website under construction for learning languages
 
 https://site50.github.io/english/Home.html
-"#edication" 
+"#edication English" 
+"trainer English"
 "#lesson" 
+"Javascript"
+"php"
+"JQuery"
+"Html"
+"CSS"
+"@media ..." queries 
+

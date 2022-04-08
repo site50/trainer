@@ -12,5 +12,6 @@ https://site50.github.io/english/Home.html
 "CSS"
 "@media ..." queries 
 
-https://github.com/site50/trainer/blob/main/images/beach.jpg
+![Test Image 3](https://github.com/site50/trainer/blob/main/images/beach.jpg)
+
 
